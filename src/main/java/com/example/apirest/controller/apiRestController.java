@@ -1,5 +1,6 @@
 package com.example.apirest.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +16,9 @@ public class apiRestController {
         this.miServicio = elServicio;
     }
 
-    @GetMapping("/movies/{filmName}")
+    @CrossOrigin(origins = "http://192.168.1.154:8081")
+    @GetMapping("/movie/{filmName}")
     public String getFilmByName(@PathVariable String filmName) {
         return miServicio.obtenerPeliculaPorNombre(filmName);
     }
-
 }
