@@ -1,23 +1,21 @@
 package com.example.apirest.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.apirest.service.apiRestService;
+import com.example.apirest.service.ApiRestService;
 
 @RestController
-public class apiRestController {
+public class ApiRestController {
 
-    private final apiRestService miServicio;
-    public apiRestController(apiRestService elServicio)
-    {
-        this.miServicio = elServicio;
-    }
+    @Autowired
+    private ApiRestService miServicio;
 
     @CrossOrigin(origins = "http://192.168.1.154:8081")
-    @GetMapping("/movie/{filmName}")
+    @GetMapping("/movie/{movieName}")
     public String getFilmByName(@PathVariable String filmName) {
         return miServicio.obtenerPeliculaPorNombre(filmName);
     }

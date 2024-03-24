@@ -4,11 +4,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Service
-public class apiRestService {
+public class ApiRestService {
     private static final String TMDB_API_URL = "https://api.themoviedb.org/3";
     private static final String SEARCH_MOVIE_ENDPOINT = "/search/movie";
 
@@ -16,7 +14,7 @@ public class apiRestService {
     private String apiKey;
 
     private final WebClient webClient;
-    public apiRestService(WebClient.Builder webClientBuilder) {
+    public ApiRestService(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder.baseUrl(TMDB_API_URL).build();
     }
 
