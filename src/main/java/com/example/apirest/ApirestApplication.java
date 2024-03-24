@@ -13,8 +13,8 @@ public class ApirestApplication {
 		SpringApplication.run(ApirestApplication.class, args);
 	}
 
-	//npm install --global http-server para instalar el paquete y levantar un archivo que tenga en directorio y procese los cors
-	// npx http-server [path] [options] para levantarlo
+	//npm install --global http-server para instalar el paquete y levantar un archivo que tenga en el disco y se puedan procesar los cors
+	// npx http-server [path] [options] para levantarlo, tiene que apuntar a la carpeta donde esté el .html que queremos lanzar
 
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
